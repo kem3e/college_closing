@@ -8,7 +8,7 @@ Author: Katharine Meyer (katharine_meyer@brown.edu)
 ***/
 
 *Set file path on your computer
-global project "C:\Users\kmeyer6\Box Sync\Misc\IPEDS closing" 
+global project "C:\Users/`c(username)'/Box Sync\GitHub\college_closing" 
 global raw "${project}/IPEDS data" 
 global clean "${project}/Stata data" 
 
@@ -20,7 +20,7 @@ global clean "${project}/Stata data"
 	*Different years stored as different file names
 	
 	*Late 90s		
-		import delimited "${raw}\ic98hdac_data_stata.csv", clear
+		import delimited "${raw}/ic98hdac_data_stata.csv", clear
 			keep unitid instnm addr city stabbr zip fips sector hbcu closedat
 			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
 				tostring `var', replace
