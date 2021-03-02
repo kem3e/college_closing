@@ -25,6 +25,7 @@ global clean "${project}/Stata data"
 			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
 				tostring `var', replace
 			}
+			rename closedat closedat`year'
 		save "${clean}\small1998_directory.dta", replace	
 	
 		import delimited "${raw}\ic99_hd_data_stata.csv", clear
@@ -32,6 +33,7 @@ global clean "${project}/Stata data"
 			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
 				tostring `var', replace
 			}
+			rename closedat closedat`year'
 		save "${clean}\small1999_directory.dta", replace
 		
 	*Early 00s
@@ -41,6 +43,7 @@ global clean "${project}/Stata data"
 			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
 				tostring `var', replace
 			}
+			rename closedat closedat`year'
 		save "${clean}\small`year'_directory.dta", replace
 	}
 
@@ -51,6 +54,7 @@ global clean "${project}/Stata data"
 			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
 				tostring `var', replace
 			}
+			rename closedat closedat`year'
 		save "${clean}\small`year'_directory.dta", replace
 	}
 
