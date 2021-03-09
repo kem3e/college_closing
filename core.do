@@ -21,16 +21,16 @@ global clean "${project}/Stata data"
 	
 	*Late 90s		
 		import delimited "${raw}/ic98hdac_data_stata.csv", clear
-			keep unitid instnm addr city stabbr zip fips sector hbcu closedat
-			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
+			keep unitid instnm addr city stabbr zip fips sector hbcu closedat chfnm chftitle
+			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat chfnm chftitle {
 				tostring `var', replace
 			}
 			rename closedat closedat1998
 		save "${clean}\small1998_directory.dta", replace	
 	
 		import delimited "${raw}\ic99_hd_data_stata.csv", clear
-			keep unitid instnm addr city stabbr zip fips sector hbcu closedat
-			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
+			keep unitid instnm addr city stabbr zip fips sector hbcu closedat chfnm chftitle
+			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat chfnm chftitle {
 				tostring `var', replace
 			}
 			rename closedat closedat1999
@@ -39,8 +39,8 @@ global clean "${project}/Stata data"
 	*Early 00s
 	foreach year of numlist 2000/2001 {
 		import delimited "${raw}\fa`year'hd_data_stata.csv", clear
-			keep unitid instnm addr city stabbr zip fips sector hbcu closedat
-			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
+			keep unitid instnm addr city stabbr zip fips sector hbcu closedat chfnm chftitle
+			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat  chfnm chftitle {
 				tostring `var', replace
 			}
 			rename closedat closedat`year'
@@ -50,8 +50,8 @@ global clean "${project}/Stata data"
 	*Mid-late 00s/10s
 	foreach year of numlist 2002/2019 {
 		import delimited "${raw}\hd`year'_data_stata.csv", clear
-			keep unitid instnm addr city stabbr zip fips sector hbcu closedat
-			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat {
+			keep unitid instnm addr city stabbr zip fips sector hbcu closedat chfnm chftitle 
+			foreach var in unitid instnm addr city stabbr zip fips sector hbcu closedat chfnm chftitle {
 				tostring `var', replace
 			}
 			rename closedat closedat`year'
